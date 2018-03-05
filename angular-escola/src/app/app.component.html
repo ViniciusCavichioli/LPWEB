@@ -1,0 +1,51 @@
+<h1 align = 'center'>Lista de disciplinas</h1>
+
+<table class="table  table-dark table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col" width="80">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col" width="50">Detalhes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let disciplina of disciplinas">
+        <th scope="row">{{disciplina.codigo}}</th>
+        <td>{{disciplina.nome}}</td>
+        <td>
+            <button class="btn btn-outline-info" (click)="selecionar(disciplina)">
+                <i class="fa fa-pencil-square"></i> Detalhes
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h1 *ngIf="selecionado != disciplina">
+    Detalhes: {{selecionado.codigo}} - {{selecionado.nome}}
+    <button class="btn btn-outline-info" (click)="ocultar(disciplina)">
+        <i class="fa fa-pencil-square"></i> Ocultar
+    </button>
+</h1>
+
+<table class="table table-bordered table-striped table-sm" *ngIf="selecionado != disciplina">
+    <thead class="thead-dark">
+    <tr>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <th>Professor  </th> {{selecionado.professor.nome}}
+
+    </tr>
+    <tr>
+
+        <th>Descrição </th> {{selecionado.descricao}}
+
+    </tr>
+    </tbody>
+</table>
